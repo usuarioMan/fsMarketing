@@ -1,6 +1,10 @@
 from pathlib import Path
 import os
 import environ
+import mimetypes
+
+mimetypes.add_type("application/javascript", ".js", True)
+
 
 env_path = Path(__file__).resolve().parent.parent / '.env'
 env = environ.Env()
@@ -119,15 +123,13 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# This static folder is created automatically when the collectstatic command is run.
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(REACT_BASE_DIR, 'dist')]
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-# TODO: Check if this works.
-STATICFILES_DIRS = [os.path.join(REACT_BASE_DIR, 'dist')]
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
