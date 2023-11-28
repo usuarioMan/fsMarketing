@@ -1,7 +1,15 @@
 import PropTypes from "prop-types";
+import NavBar from "../../components/navigation/NavBar";
+import Footer from "../../components/navigation/Footer";
 
 const Layout = ({ children }) => {
-  return <div>{children}</div>;
+  return (
+    <>
+      <NavBar />
+      <div className="pt-28">{children}</div>
+      <Footer />
+    </>
+  );
 };
 
 Layout.propTypes = {
